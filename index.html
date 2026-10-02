@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>GameShop Morocco</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#07080d;color:#fff;font-family:Arial,Tahoma,sans-serif}header{text-align:center;padding:55px 15px;background:radial-gradient(circle,#18233d,#07080d 65%)}h1{font-size:38px;margin:0 0 8px}.muted{color:#aeb4c2}nav{position:sticky;top:0;background:#10121aee;padding:14px;text-align:center;z-index:5}nav a{color:#fff;text-decoration:none;margin:0 10px;font-weight:bold}.wrap{max-width:1100px;margin:auto;padding:35px 18px}.title{text-align:center;margin-bottom:25px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}.card{background:#131620;border:1px solid #282d3b;border-radius:20px;padding:22px;text-align:center}.icon{font-size:48px}.price{color:#00e676;font-size:24px;font-weight:900;margin:12px}.btn{display:inline-block;background:#00c968;color:white;border:0;border-radius:12px;padding:12px 18px;font-weight:bold;text-decoration:none;cursor:pointer}.contact{text-align:center;background:#11141d;border-radius:20px;padding:30px}.admin{position:fixed;left:12px;bottom:12px;background:#202532;color:#aaa;padding:7px 10px;border-radius:9px;font-size:11px;text-decoration:none}@media(max-width:600px){h1{font-size:30px}}
+</style></head>
+<body>
+<header><h1>🎮 GameShop Morocco</h1><p class="muted">شحن الألعاب • حسابات • خدمات رقمية</p></header>
+<nav><a href="#games">الألعاب</a><a href="#products">المنتجات</a><a href="#accounts">الحسابات</a><a href="#contact">تواصل معنا</a></nav>
+<section class="wrap" id="games"><h2 class="title">🎮 الألعاب</h2><div class="grid">
+<div class="card"><div class="icon">🔥</div><h3>Free Fire</h3><p class="muted">شحن الجواهر والطلبات</p><a class="btn" href="https://wa.me/212637067853?text=سلام،%20بغيت%20شحن%20Free%20Fire" target="_blank">اطلب الآن</a></div>
+<div class="card"><div class="icon">⚽</div><h3>PES</h3><p class="muted">خدمات وطلبات PES</p><a class="btn" href="https://wa.me/212637067853?text=سلام،%20بغيت%20خدمة%20PES" target="_blank">اطلب الآن</a></div>
+<div class="card"><div class="icon">🧱</div><h3>Roblox</h3><p class="muted">Robux وطلبات Roblox</p><a class="btn" href="https://wa.me/212637067853?text=سلام،%20بغيت%20شحن%20Roblox" target="_blank">اطلب الآن</a></div>
+</div></section>
+<section class="wrap" id="products"><h2 class="title">🔥 المنتجات</h2><div class="grid" id="productsGrid"></div></section>
+<section class="wrap" id="accounts"><h2 class="title">👤 حسابات الألعاب</h2><div class="card"><div class="icon">🎮</div><h3>حسابات متوفرة</h3><p class="muted">تواصل معنا لمعرفة الحسابات والأسعار.</p><a class="btn" href="https://wa.me/212637067853?text=سلام،%20بغيت%20نشوف%20الحسابات%20المتوفرة" target="_blank">شوف الحسابات</a></div></section>
+<section class="wrap" id="contact"><div class="contact"><h2>📱 تواصل معنا</h2><p>0637067853</p><a class="btn" href="https://wa.me/212637067853" target="_blank">💬 واتساب</a></div></section>
+<a class="admin" href="admin.html">لوحة المالك</a><footer style="text-align:center;padding:30px;color:#777">© 2026 GameShop Morocco</footer>
+<script>
+const defaults=[
+{id:1,icon:"💎",name:"Free Fire - 100 جوهرة",price:"10 DH"},
+{id:2,icon:"💎",name:"Free Fire - 310 جواهر",price:"25 DH"},
+{id:3,icon:"🟩",name:"Roblox - Robux",price:"حسب الطلب"},
+{id:4,icon:"⚽",name:"PES - خدمة",price:"حسب الطلب"}];
+let products=JSON.parse(localStorage.getItem("gs_products")||"null")||defaults;
+function render(){document.getElementById("productsGrid").innerHTML=products.map(p=>`<div class="card"><div class="icon">${p.icon}</div><h3>${p.name}</h3><div class="price">${p.price}</div><a class="btn" href="https://wa.me/212637067853?text=${encodeURIComponent("سلام، بغيت نطلب: "+p.name+" - "+p.price)}" target="_blank">اطلب عبر واتساب</a></div>`).join("")}
+render();
+</script></body></html>
